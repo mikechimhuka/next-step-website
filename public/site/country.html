@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Study Destination Guide | Next Step Study Solutions</title>
+  <meta name="description" content="Practical study-abroad guidance for international students: tuition, living costs, lifestyle, work rights, visa preparation and Zimbabwe-focused advice." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=20260731-4" />
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav wrap">
+      <a href="index.html" class="brand">
+        <span class="logo">🎓</span>
+        <span><strong>Next Step</strong><small>Study Solutions</small></span>
+      </a>
+      <button class="menu" id="countryMenuBtn" aria-label="Open menu">☰</button>
+      <div class="nav-links" id="countryNavLinks">
+        <a href="about.html">About Us</a>
+        <a href="index.html#countries" aria-current="page">Countries</a>
+        <a href="index.html#process">How it works</a>
+        <a href="index.html#pricing">Fees</a>
+        <a href="index.html#apply" class="btn small">Apply Now</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="countryGuide">
+    <section class="country-hero" id="countryHero">
+      <div class="wrap country-hero-content">
+        <a class="back-link" href="index.html#countries">← All study countries</a>
+        <p class="eyebrow" id="countryKicker">STUDENT DESTINATION GUIDE</p>
+        <h1 id="countryName">Country guide</h1>
+        <p class="country-hero-lead" id="countryTagline"></p>
+        <div class="hero-actions">
+          <a href="index.html#apply" class="btn" id="countryApplyBtn">Start a free assessment</a>
+          <a href="#countryBudget" class="btn ghost">See the budget</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="country-switcher" aria-label="Choose another country">
+      <div class="wrap country-tabs">
+        <a href="country.html?country=canada" data-country="canada">Canada</a>
+        <a href="country.html?country=uk" data-country="uk">United Kingdom</a>
+        <a href="country.html?country=usa" data-country="usa">United States</a>
+        <a href="country.html?country=australia" data-country="australia">Australia</a>
+        <a href="country.html?country=germany" data-country="germany">Germany</a>
+        <a href="country.html?country=poland" data-country="poland">Poland</a>
+      </div>
+    </section>
+
+    <section class="section compact-section wrap">
+      <div class="country-facts" id="countryFacts"></div>
+      <div class="guide-intro">
+        <div>
+          <p class="eyebrow">IS IT RIGHT FOR YOU?</p>
+          <h2 id="fitHeading"></h2>
+        </div>
+        <p id="fitText"></p>
+      </div>
+    </section>
+
+    <section class="section soft" id="countryBudget">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">PLAN THE MONEY FIRST</p>
+          <h2>Your realistic student budget</h2>
+          <p>Use these figures for early planning, then confirm the exact fees and visa requirements for your course and application date.</p>
+        </div>
+        <div class="budget-layout">
+          <div class="budget-total">
+            <span>Suggested first-year planning range</span>
+            <strong id="budgetTotal"></strong>
+            <p id="budgetNote"></p>
+          </div>
+          <div class="budget-list" id="budgetRows"></div>
+        </div>
+        <div class="official-funds" id="officialFunds"></div>
+      </div>
+    </section>
+
+    <section class="section wrap">
+      <div class="guide-grid">
+        <article class="guide-card">
+          <span class="guide-icon">🌍</span>
+          <h2>Lifestyle & daily life</h2>
+          <ul id="lifestyleList"></ul>
+        </article>
+        <article class="guide-card good-card">
+          <span class="guide-icon">✨</span>
+          <h2>What students love</h2>
+          <ul id="goodList"></ul>
+        </article>
+        <article class="guide-card challenge-card">
+          <span class="guide-icon">⚠️</span>
+          <h2>Challenges to plan for</h2>
+          <ul id="challengeList"></ul>
+        </article>
+        <article class="guide-card">
+          <span class="guide-icon">📚</span>
+          <h2>Strong study choices</h2>
+          <ul id="studyList"></ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section soft">
+      <div class="wrap split-guide">
+        <article class="feature-panel">
+          <p class="eyebrow">WORK & AFTER GRADUATION</p>
+          <h2 id="workHeading"></h2>
+          <p id="workSummary"></p>
+          <ul class="check-list" id="workList"></ul>
+        </article>
+        <article class="feature-panel zimbabwe-panel">
+          <p class="eyebrow">FOR ZIMBABWEAN STUDENTS</p>
+          <h2>What to prepare early</h2>
+          <ul class="check-list" id="zimbabweList"></ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section wrap">
+      <div class="visa-card">
+        <div>
+          <p class="eyebrow">VISA PREPARATION</p>
+          <h2>Build a clear, verifiable application</h2>
+          <p>Your course choice, funding story and career plan should agree with one another. Never submit altered documents or unexplained last-minute deposits.</p>
+        </div>
+        <ol id="visaList"></ol>
+      </div>
+    </section>
+
+    <section class="section compact-section soft">
+      <div class="wrap source-box">
+        <div>
+          <p class="eyebrow">CHECK BEFORE YOU APPLY</p>
+          <h2>Official information</h2>
+          <p>Immigration rules and amounts change. These links go to the government or national education sources used for this guide.</p>
+        </div>
+        <div class="source-links" id="sourceLinks"></div>
+        <p class="reviewed">Guide reviewed July 2026. Planning ranges are indicative, not a visa guarantee or financial advice.</p>
+      </div>
+    </section>
+
+    <section class="section wrap">
+      <div class="country-cta">
+        <p class="eyebrow">READY FOR YOUR NEXT STEP?</p>
+        <h2 id="ctaHeading">Let’s build your study plan.</h2>
+        <p>We will compare your grades, course goals and family budget before recommending schools.</p>
+        <div class="hero-actions">
+          <a href="index.html#apply" class="btn">Start free assessment</a>
+          <a href="https://wa.me/263787701146" class="btn ghost dark">WhatsApp our team</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-grid">
+      <div><h3>Next Step Study Solutions</h3><p>Empowering students. Creating global opportunities.</p></div>
+      <div><p><b>WhatsApp:</b> +263 78 770 1146</p><p><b>Call:</b> +1 (513) 824 0400</p><p><b>Email:</b> info@nextstepstudysolutions.co.zw</p></div>
+    </div>
+  </footer>
+  <a class="float-wa" href="https://wa.me/263787701146">WhatsApp</a>
+  <script src="country.js?v=20260731-1"></script>
+</body>
+</html>
