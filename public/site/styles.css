@@ -65,6 +65,7 @@ body{margin:0;font-family:Inter,system-ui,sans-serif;color:var(--ink);background
 .footer-grid{display:flex;justify-content:space-between;gap:30px}
 .footer-brand{display:flex;align-items:center;gap:18px}
 .footer-logo{width:96px;height:96px;object-fit:cover;border-radius:50%;background:white;box-shadow:0 10px 28px rgba(0,0,0,.22)}
+.nonprofit-status{display:inline-block;margin:4px 0 0;padding:6px 10px;border:1px solid rgba(255,255,255,.35);border-radius:999px;color:#f7c84b;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.04em}
 .float-wa{position:fixed;right:18px;bottom:18px;background:#20b15a;color:white;text-decoration:none;padding:14px 18px;border-radius:999px;font-weight:900;box-shadow:0 12px 30px rgba(0,0,0,.22)}
 .about-hero{background:linear-gradient(135deg,#071b3a 0%,#0b4aa2 75%,#07214a 100%);color:white}
 .about-hero-content{min-height:430px;display:flex;flex-direction:column;justify-content:center;max-width:900px}
