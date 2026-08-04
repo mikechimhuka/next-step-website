@@ -26,3 +26,26 @@ document.getElementById('leadForm').addEventListener('submit', (e) => {
   const body = encodeURIComponent(`Hello Next Step Study Solutions,\n\nI want help with my study abroad application.\n\nName: ${data.name}\nEmail: ${data.email}\nWhatsApp: ${data.phone}\nCountry of residence: ${data.residence}\nPreferred destination: ${data.destination}\nPreferred course: ${data.course}\n\nPlease guide me and link me to the right application process for email updates.\n`);
   window.location.href = `mailto:${TEAM_EMAIL}?subject=${subject}&body=${body}`;
 });
+const portalToast = document.getElementById('portalToast');
+const portalUpdateText = document.getElementById('portalUpdateText');
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const portalUpdates = [
+  'Document checklist approved',
+  'Application sent to school',
+  'New message from your advisor',
+  'Email progress update delivered'
+];
+
+if (portalToast && portalUpdateText && !reduceMotion) {
+  let updateIndex = 0;
+
+  window.setInterval(() => {
+    portalToast.classList.add('is-changing');
+
+    window.setTimeout(() => {
+      updateIndex = (updateIndex + 1) % portalUpdates.length;
+      portalUpdateText.textContent = portalUpdates[updateIndex];
+      portalToast.classList.remove('is-changing');
+    }, 260);
+  }, 3200);
+}

@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20260731-8" />
+  <link rel="stylesheet" href="styles.css?v=20260803-1" />
   <link rel="icon" type="image/png" href="assets/next-step-official-logo.png" />
   <link rel="apple-touch-icon" href="assets/next-step-official-logo.png" />
 </head>
@@ -46,16 +46,40 @@
             <span>✅ University matching</span><span>✅ Visa guidance</span><span>✅ Email updates</span>
           </div>
         </div>
-        <div class="hero-card">
-          <div class="status-card">
-            <div class="status-top"><span>Application Tracker</span><b>Live Updates</b></div>
-            <ul>
-              <li><span></span> Profile created</li>
-              <li><span></span> Documents checklist sent</li>
-              <li><span></span> School options shared</li>
-              <li><span></span> Application update by email</li>
-            </ul>
+        <div class="hero-card portal-preview" aria-label="Sample student application portal">
+          <span class="portal-orb portal-orb-one" aria-hidden="true"></span>
+          <span class="portal-orb portal-orb-two" aria-hidden="true"></span>
+          <div class="portal-shell">
+            <div class="portal-topbar">
+              <div class="portal-student">
+                <span class="student-avatar">TM</span>
+                <div><small>Student portal preview</small><strong>Tariro M.</strong></div>
+              </div>
+              <span class="live-pill"><i></i> Live demo</span>
+            </div>
+            <div class="portal-course">
+              <div><span>Destination</span><strong>Canada</strong></div>
+              <div><span>Program</span><strong>Computer Science</strong></div>
+            </div>
+            <div class="portal-progress">
+              <div class="progress-label"><span>Application progress</span><strong>68%</strong></div>
+              <div class="progress-track"><span></span></div>
+            </div>
+            <div class="application-steps">
+              <article class="portal-step complete"><span class="step-icon">&#10003;</span><div><small>Step 1</small><strong>Profile created</strong></div><b>Done</b></article>
+              <article class="portal-step complete"><span class="step-icon">&#10003;</span><div><small>Step 2</small><strong>Documents reviewed</strong></div><b>Done</b></article>
+              <article class="portal-step active"><span class="step-icon"></span><div><small>Step 3</small><strong>School application</strong></div><b>In review</b></article>
+              <article class="portal-step upcoming"><span class="step-icon">4</span><div><small>Step 4</small><strong>Offer letter</strong></div><b>Next</b></article>
+            </div>
+            <div class="portal-summary">
+              <div><strong>3</strong><span>Schools</span></div><div><strong>8/8</strong><span>Documents</span></div><div><strong>1</strong><span>New message</span></div>
+            </div>
+            <div class="portal-toast" id="portalToast" aria-live="polite">
+              <span class="toast-icon">&#10003;</span><div><small>New update</small><strong id="portalUpdateText">Document checklist approved</strong></div>
+            </div>
           </div>
+          <div class="floating-chip chip-email" aria-hidden="true"><span>&#9993;</span> Email update sent</div>
+          <div class="floating-chip chip-document" aria-hidden="true"><span>&#10003;</span> Documents complete</div>
         </div>
       </div>
     </section>
@@ -177,6 +201,6 @@
     </div>
   </footer>
   <a class="float-wa" href="https://wa.me/263787701146">WhatsApp</a>
-  <script src="script.js"></script>
+  <script src="script.js?v=20260803-1"></script>
 </body>
 </html>
