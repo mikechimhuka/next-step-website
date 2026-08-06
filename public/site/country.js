@@ -199,6 +199,55 @@ const countryGuides = {
   }
 };
 
+const usdRates = {
+  CAD: 0.7119,
+  GBP: 1.3479,
+  AUD: 0.7052,
+  EUR: 1.1554,
+  PLN: 0.2683,
+  AED: 0.2723
+};
+
+const parseCurrencyAmount = raw => {
+  const compact = raw.replace(/,/g, "").trim();
+  const multiplier = /k$/i.test(compact) ? 1000 : 1;
+  return Number.parseFloat(compact.replace(/k$/i, "")) * multiplier;
+};
+
+const formatUsdAmount = value => {
+  if (value >= 10000) return `${Math.round(value / 1000)}k`;
+  if (value >= 1000) return `${Number((Math.round(value / 100) / 10).toFixed(1))}k`;
+  if (value >= 100) return `${Math.round(value / 10) * 10}`;
+  return `${Math.round(value)}`;
+};
+
+const formatUsdRange = (raw, rate) => raw
+  .split(/[–-]/)
+  .map(part => `US$${formatUsdAmount(parseCurrencyAmount(part) * rate)}`)
+  .join("–");
+
+const withUsdEstimates = value => {
+  if (typeof value !== "string" || value.includes("(about US$")) return value;
+
+  const patterns = [
+    { regex: /CAD\s+(\d[\d,]*(?:\.\d+)?k?(?:\s*[–-]\s*\d[\d,]*(?:\.\d+)?k?)?)/gi, rate: usdRates.CAD },
+    { regex: /£(\d[\d,]*(?:\.\d+)?k?(?:\s*[–-]\s*\d[\d,]*(?:\.\d+)?k?)?)/g, rate: usdRates.GBP },
+    { regex: /AUD\s+(\d[\d,]*(?:\.\d+)?k?(?:\s*[–-]\s*\d[\d,]*(?:\.\d+)?k?)?)/gi, rate: usdRates.AUD },
+    { regex: /€(\d[\d,]*(?:\.\d+)?k?(?:\s*[–-]\s*\d[\d,]*(?:\.\d+)?k?)?)/g, rate: usdRates.EUR },
+    { regex: /EUR\s+(\d[\d,]*(?:\.\d+)?k?(?:\s*[–-]\s*\d[\d,]*(?:\.\d+)?k?)?)/gi, rate: usdRates.EUR },
+    { regex: /PLN\s+(\d[\d,]*(?:\.\d+)?k?(?:\s*[–-]\s*\d[\d,]*(?:\.\d+)?k?)?)/gi, rate: usdRates.PLN },
+    { regex: /AED\s+(\d[\d,]*(?:\.\d+)?k?(?:\s*[–-]\s*\d[\d,]*(?:\.\d+)?k?)?)/gi, rate: usdRates.AED }
+  ];
+
+  return patterns.reduce(
+    (result, { regex, rate }) => result.replace(
+      regex,
+      (match, amount) => `${match} (about ${formatUsdRange(amount, rate)})`
+    ),
+    value
+  );
+};
+
 const params = new URLSearchParams(window.location.search);
 const slug = countryGuides[params.get("country")] ? params.get("country") : "canada";
 const guide = countryGuides[slug];
@@ -220,16 +269,16 @@ setText("countryName", `Study in ${guide.name}`);
 setText("countryTagline", guide.tagline);
 setText("fitHeading", guide.fitHeading);
 setText("fitText", guide.fitText);
-setText("budgetTotal", guide.budgetTotal);
+setText("budgetTotal", withUsdEstimates(guide.budgetTotal));
 setText("budgetNote", guide.budgetNote);
 setText("workHeading", guide.workHeading);
 setText("workSummary", guide.workSummary);
 setText("ctaHeading", `Let’s build your ${guide.name} study plan.`);
 document.getElementById("countryApplyBtn").textContent = `Plan my ${guide.name} application`;
 
-document.getElementById("countryFacts").innerHTML = guide.facts.map(([label, value]) => `<div><span>${label}</span><strong>${value}</strong></div>`).join("");
-document.getElementById("budgetRows").innerHTML = guide.budget.map(([label, value]) => `<div><span>${label}</span><strong>${value}</strong></div>`).join("");
-document.getElementById("officialFunds").innerHTML = guide.officialFunds;
+document.getElementById("countryFacts").innerHTML = guide.facts.map(([label, value]) => `<div><span>${label}</span><strong>${withUsdEstimates(value)}</strong></div>`).join("");
+document.getElementById("budgetRows").innerHTML = guide.budget.map(([label, value]) => `<div><span>${label}</span><strong>${withUsdEstimates(value)}</strong></div>`).join("");
+document.getElementById("officialFunds").innerHTML = withUsdEstimates(guide.officialFunds);
 renderList("lifestyleList", guide.lifestyle);
 renderList("goodList", guide.good);
 renderList("challengeList", guide.challenges);
